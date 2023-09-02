@@ -15,3 +15,5 @@ class Config(object):
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
     ADMINS = ['jeffplata@gmail.com']
+
+    POSTS_PER_PAGE = 3
