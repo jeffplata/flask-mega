@@ -72,3 +72,7 @@ sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed
 [parameters: ('godo', 'cat lover', 1)]
 (Background on this error at: https://sqlalche.me/e/20/gkpj)
 2023-09-02 15:55:03,536 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:48]
+2023-09-02 17:24:39,098 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:48]
+2023-09-02 17:25:35,555 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:48]
+2023-09-02 17:29:03,581 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:48]
+2023-09-02 17:38:18,735 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:48]
