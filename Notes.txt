@@ -1,3 +1,5 @@
-*If Powershell refuses to activate venv
-
+# If Powershell refuses to activate venv
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+# Debug Server
+python -m smtpd -n -c DebuggingServer localhost:8025
