@@ -51,6 +51,7 @@
 
 {% block scripts %}
     {{ super() }}
+    {{ moment.include_moment() }}
     <script>
         jQuery(".btn.btn-default").addClass('btn-primary');
     </script>
