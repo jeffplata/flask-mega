@@ -20,11 +20,11 @@ msgstr ""
 
 #: app/__init__.py:20
 msgid "Please log in to access this page."
-msgstr ""
+msgstr "Por favor inicie sesión para acceder a esta página."
 
 #: app/email.py:22
 msgid "[Microblog] Reset Your Password"
-msgstr ""
+msgstr "[Microblog] Restablecer su contraseña"
 
 #: app/forms.py:11 app/forms.py:18 app/forms.py:51
 msgid "Username"
@@ -36,11 +36,11 @@ msgstr ""
 
 #: app/forms.py:13
 msgid "Remember Me"
-msgstr ""
+msgstr "Acuérdate de mí"
 
 #: app/forms.py:14 app/routes.py:74 app/templates/login.html:5
 msgid "Sign In"
-msgstr ""
+msgstr "Iniciar sesión"
 
 #: app/forms.py:19 app/forms.py:38
 msgid "Email"
@@ -48,15 +48,15 @@ msgstr ""
 
 #: app/forms.py:22 app/forms.py:45
 msgid "Repeat Password"
-msgstr ""
+msgstr "Repita la contraseña"
 
 #: app/forms.py:24 app/routes.py:95 app/templates/register.html:5
 msgid "Register"
-msgstr ""
+msgstr "Rehistro"
 
 #: app/forms.py:29 app/forms.py:64
 msgid "Please use a different username."
-msgstr ""
+msgstr "Por favor use un nombre de usuario diferente"
 
 #: app/forms.py:34
 msgid "Please use a different email address."
@@ -76,11 +76,11 @@ msgstr ""
 
 #: app/forms.py:72
 msgid "Say something"
-msgstr ""
+msgstr "Di algo"
 
 #: app/routes.py:30
 msgid "Your post is now live!"
-msgstr ""
+msgstr "Tu publicación ya está disponible"
 
 #: app/routes.py:39 app/templates/base.html:21
 msgid "Home"
