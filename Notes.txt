@@ -3,3 +3,7 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 # Debug Server
 python -m smtpd -n -c DebuggingServer localhost:8025
+
+# For Elasticsearch
+#   do a Post.reindex() in Flask shell to build the index file
+#   first time
