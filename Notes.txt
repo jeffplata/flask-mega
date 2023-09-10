@@ -5,5 +5,10 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 python -m smtpd -n -c DebuggingServer localhost:8025
 
 # For Elasticsearch
+# Enable security features (set to false when disconnected)
+# xpack.security.enabled: false
+#
+# then run elasticsearch.bat
+#
 #   do a Post.reindex() in Flask shell to build the index file
 #   first time
