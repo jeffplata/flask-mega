@@ -1,126 +1,83 @@
-2023-09-02 22:03:36,127 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:03:49,708 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:05:14,986 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:07:28,553 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:08:07,640 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:08:58,915 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:09:07,970 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:13:49,657 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:14:13,254 ERROR: Exception on /login [POST] [in C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+2023-10-02 16:39:22,147 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
+2023-10-02 16:40:10,294 ERROR: Exception on /index [POST] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
 Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\jplata\Desktop\flask-mega\app\routes.py", line 33, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2743, in first
-    return self.limit(1)._iter().first()  # type: ignore
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2842, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2262, in execute
-    return self._execute_internal(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2144, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
-    result = conn.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1412, in execute
-    return meth(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
-    return self._exec_single_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1984, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2339, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('godo', 1, 0)]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2023-09-02 22:17:07,568 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:18:25,677 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:22:19,421 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:23:09,455 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:23:19,131 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:24:04,746 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:24:24,626 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:24:35,348 ERROR: Exception on /login [POST] [in C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 56, in index
+    db.session.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 554, in commit
+    return self._proxied.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1923, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1249, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\event\attr.py", line 378, in __call__
+    fn(*args, **kw)
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 43, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\User\Desktop\flask-mega\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\utils.py", line 414, in wrapped
+    return api(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\__init__.py", line 2318, in index
+    return self.perform_request(  # type: ignore[return-value]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\_base.py", line 285, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_transport.py", line 329, in perform_request
+    meta, raw_data = node.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_node\_http_urllib3.py", line 199, in perform_request
+    raise err from None
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001424D456AC0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it))
+2023-10-02 17:50:12,162 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
+2023-10-02 17:50:59,385 ERROR: Exception on /index [POST] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
 Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\jplata\Desktop\flask-mega\app\routes.py", line 33, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2743, in first
-    return self.limit(1)._iter().first()  # type: ignore
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2842, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2262, in execute
-    return self._execute_internal(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2144, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
-    result = conn.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1412, in execute
-    return meth(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
-    return self._exec_single_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1984, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2339, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('godo', 1, 0)]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2023-09-02 22:28:01,333 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:29:30,274 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:29:42,310 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 57, in index
+    db.session.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 554, in commit
+    return self._proxied.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1923, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1249, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\event\attr.py", line 378, in __call__
+    fn(*args, **kw)
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 43, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\User\Desktop\flask-mega\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\utils.py", line 414, in wrapped
+    return api(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\__init__.py", line 2318, in index
+    return self.perform_request(  # type: ignore[return-value]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\_base.py", line 285, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_transport.py", line 329, in perform_request
+    meta, raw_data = node.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_node\_http_urllib3.py", line 199, in perform_request
+    raise err from None
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000002BA5B032940>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it))
+2023-10-02 17:53:42,368 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]

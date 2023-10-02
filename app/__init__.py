@@ -34,7 +34,7 @@ def create_app(config_class=Config):
     bootstrap.init_app(app)
     moment.init_app(app)
     babel.init_app(app)
-    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
+    app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']], timeout=10) \
         if app.config['ELASTICSEARCH_URL'] else None
 
     from app.errors import bp as errors_bp
@@ -59,7 +59,8 @@ def create_app(config_class=Config):
                 mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
                 # fromaddr='no-reply@' + app.config['MAIL_SERVER'],
                 fromaddr=app.config['MAIL_DEFAULT_SENDER'],
-                toaddrs=app.config['ADMINS'], subject='Microblog Failure',
+                toaddrs=app.config['ADMINS'],
+                subject='Microblog Failure',
                 credentials=auth, secure=secure)
             mail_handler.setLevel(logging.ERROR)
             app.logger.addHandler(mail_handler)

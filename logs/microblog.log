@@ -1,4 +1,88 @@
-2023-09-02 22:29:54,049 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:30:46,151 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:59:13,336 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 23:01:48,997 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
+2023-10-02 17:54:08,413 ERROR: Exception on /index [POST] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 57, in index
+    db.session.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 554, in commit
+    return self._proxied.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1923, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1249, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\event\attr.py", line 378, in __call__
+    fn(*args, **kw)
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 43, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\User\Desktop\flask-mega\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\utils.py", line 414, in wrapped
+    return api(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\__init__.py", line 2318, in index
+    return self.perform_request(  # type: ignore[return-value]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\_base.py", line 285, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_transport.py", line 329, in perform_request
+    meta, raw_data = node.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_node\_http_urllib3.py", line 199, in perform_request
+    raise err from None
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x0000023D769F5F10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it))
+2023-10-02 18:19:53,268 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
+2023-10-02 18:40:40,676 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
+2023-10-02 18:41:05,442 ERROR: Exception on /index [POST] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 56, in index
+    db.session.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 554, in commit
+    return self._proxied.commit()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1923, in commit
+    trans.commit(_to_root=True)
+  File "<string>", line 2, in commit
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
+    ret_value = fn(self, *arg, **kw)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1249, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\event\attr.py", line 378, in __call__
+    fn(*args, **kw)
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 43, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "C:\Users\User\Desktop\flask-mega\app\search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\utils.py", line 414, in wrapped
+    return api(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\__init__.py", line 2318, in index
+    return self.perform_request(  # type: ignore[return-value]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elasticsearch\_sync\client\_base.py", line 285, in perform_request
+    meta, resp_body = self.transport.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_transport.py", line 329, in perform_request
+    meta, raw_data = node.perform_request(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\elastic_transport\_node\_http_urllib3.py", line 199, in perform_request
+    raise err from None
+elastic_transport.ConnectionError: Connection error caused by: ConnectionError(Connection error caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x000001440D58E280>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it))
+2023-10-02 18:42:19,650 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
+2023-10-02 18:43:03,273 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
+2023-10-02 21:54:56,846 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:82]
+2023-10-02 22:30:45,587 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:82]
+2023-10-02 22:33:17,545 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
+2023-10-02 22:37:29,794 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:79]
