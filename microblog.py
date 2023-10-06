@@ -1,6 +1,9 @@
 from app import create_app, db, cli
 from app.models import User, Post, Notification, Message, Task
 
+from app.email import send_email
+from threading import Thread
+
 app = create_app()
 cli.register(app)
 
@@ -11,21 +14,16 @@ def make_shell_context():
             'Notification': Notification, 'Task': Task}
 
 
-from app.email import send_email
-from threading import Thread
-
-
 def ping_elasticsearch(app):
     with app.app_context():
         if not app.elasticsearch.ping():
             app.elasticsearch = None
-            # send email for real when elasticsearch is actually app's feature
 
-            # send_email('[Microblog] Elasticsearch server cannot be reached',
-            #            sender=app.config['MAIL_DEFAULT_SENDER'],
-            #            recipients=[app.config['MAIL_DEFAULT_SENDER']],
-            #            text_body='Elasticsearch server cannot be reached.',
-            #            html_body='Elasticsearch server cannot be reached.')
+            send_email('[Microblog] Elasticsearch server cannot be reached',
+                       sender=app.config['MAIL_DEFAULT_SENDER'],
+                       recipients=[app.config['MAIL_DEFAULT_SENDER']],
+                       text_body='Elasticsearch server cannot be reached.',
+                       html_body='Elasticsearch server cannot be reached.')
 
 
 # startup code, runs once
