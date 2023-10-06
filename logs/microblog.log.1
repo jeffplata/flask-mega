@@ -1,126 +1,123 @@
-2023-09-02 22:03:36,127 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:03:49,708 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:05:14,986 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:07:28,553 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:08:07,640 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:08:58,915 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:09:07,970 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:13:49,657 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:14:13,254 ERROR: Exception on /login [POST] [in C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+2023-10-06 21:14:11,355 ERROR: Exception on /export_posts [GET] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
 Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\jplata\Desktop\flask-mega\app\routes.py", line 33, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2743, in first
-    return self.limit(1)._iter().first()  # type: ignore
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2842, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2262, in execute
-    return self._execute_internal(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2144, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
-    result = conn.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1412, in execute
-    return meth(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
-    return self._exec_single_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1984, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2339, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('godo', 1, 0)]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2023-09-02 22:17:07,568 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:18:25,677 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:22:19,421 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:23:09,455 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:23:19,131 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:24:04,746 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:24:24,626 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:24:35,348 ERROR: Exception on /login [POST] [in C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 231, in export_posts
+    current_user.launch_task('export_posts', _('Exporting posts...'))
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 161, in launch_task
+    db.session.add(task)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 377, in add
+    return self._proxied.add(instance, _warn=_warn)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3355, in add
+    self._save_or_update_state(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3385, in _save_or_update_state
+    self._save_or_update_impl(st_)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4029, in _save_or_update_impl
+    self._update_impl(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4012, in _update_impl
+    to_attach = self._before_attach(state, obj)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4103, in _before_attach
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Object '<User at 0x2b2eeafaf70>' is already attached to session '2' (this is '3')
+2023-10-06 21:17:58,196 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:83]
+2023-10-06 21:18:07,140 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:83]
+2023-10-06 21:18:07,140 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:83]
+2023-10-06 21:18:07,149 ERROR: Exception on /export_posts [GET] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
 Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.OperationalError: no such table: user
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
     response = self.full_dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
     rv = self.handle_user_exception(e)
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
     rv = self.dispatch_request()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
-  File "C:\Users\jplata\Desktop\flask-mega\app\routes.py", line 33, in login
-    user = User.query.filter_by(username=form.username.data).first()
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2743, in first
-    return self.limit(1)._iter().first()  # type: ignore
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\query.py", line 2842, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2262, in execute
-    return self._execute_internal(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 2144, in _execute_internal
-    result: Result[Any] = compile_state_cls.orm_execute_statement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\context.py", line 293, in orm_execute_statement
-    result = conn.execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1412, in execute
-    return meth(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
-    return self._exec_single_context(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1984, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2339, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\jplata\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
-[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
-FROM user 
-WHERE user.username = ?
- LIMIT ? OFFSET ?]
-[parameters: ('godo', 1, 0)]
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
-2023-09-02 22:28:01,333 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:29:30,274 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 22:29:42,310 INFO: Microblog startup [in C:\Users\jplata\Desktop\flask-mega\app\__init__.py:48]
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 231, in export_posts
+    current_user.launch_task('export_posts', _('Exporting posts...'))
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 161, in launch_task
+    db.session.add(task)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 377, in add
+    return self._proxied.add(instance, _warn=_warn)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3355, in add
+    self._save_or_update_state(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3385, in _save_or_update_state
+    self._save_or_update_impl(st_)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4029, in _save_or_update_impl
+    self._update_impl(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4012, in _update_impl
+    to_attach = self._before_attach(state, obj)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4103, in _before_attach
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Object '<User at 0x290ad28ca30>' is already attached to session '2' (this is '3')
+2023-10-06 21:18:07,149 ERROR: Exception on /export_posts [GET] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 231, in export_posts
+    current_user.launch_task('export_posts', _('Exporting posts...'))
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 161, in launch_task
+    db.session.add(task)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 377, in add
+    return self._proxied.add(instance, _warn=_warn)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3355, in add
+    self._save_or_update_state(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3385, in _save_or_update_state
+    self._save_or_update_impl(st_)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4029, in _save_or_update_impl
+    self._update_impl(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4012, in _update_impl
+    to_attach = self._before_attach(state, obj)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4103, in _before_attach
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Object '<User at 0x290ad28ca30>' is already attached to session '2' (this is '3')
+2023-10-06 21:19:59,797 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:83]
+2023-10-06 21:20:01,933 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:83]
+2023-10-06 21:20:01,933 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:83]
+2023-10-06 21:20:01,940 ERROR: Exception on /export_posts [GET] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 231, in export_posts
+    current_user.launch_task('export_posts', _('Exporting posts...'))
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 161, in launch_task
+    db.session.add(task)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 377, in add
+    return self._proxied.add(instance, _warn=_warn)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3355, in add
+    self._save_or_update_state(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 3385, in _save_or_update_state
+    self._save_or_update_impl(st_)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4029, in _save_or_update_impl
+    self._update_impl(state)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4012, in _update_impl
+    to_attach = self._before_attach(state, obj)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4103, in _before_attach
+    raise sa_exc.InvalidRequestError(
+sqlalchemy.exc.InvalidRequestError: Object '<User at 0x147426fc9d0>' is already attached to session '1' (this is '2')
+2023-10-06 21:39:16,213 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:83]

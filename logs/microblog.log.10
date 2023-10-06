@@ -1,13 +1,49 @@
-2023-09-02 15:40:46,207 INFO: Microblog startup [in C:\Users\User\Desktop\flask-mega\app\__init__.py:48]
-2023-09-02 15:41:26,528 ERROR: Exception on /edit_profile [POST] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+2023-10-06 00:07:17,749 ERROR: Exception on /user/godo [GET] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
 Traceback (most recent call last):
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlite3.IntegrityError: UNIQUE constraint failed: user.username
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 83, in user
+    return render_template('user.html', user=user, posts=posts.items,
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\jinja2\environment.py", line 1081, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\jinja2\environment.py", line 1010, in get_template
+    return self._load_template(name, globals)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\jinja2\environment.py", line 969, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\jinja2\loaders.py", line 138, in load
+    code = environment.compile(source, name, filename)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\jinja2\environment.py", line 768, in compile
+    self.handle_exception(source=source_hint)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\jinja2\environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\Users\User\Desktop\flask-mega\app\templates\user.html", line 61, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endblock'. You probably made a nesting mistake. Jinja is expecting this tag, but currently looking for 'elif' or 'else' or 'endif'. The innermost block that needs to be closed is 'if'.
+2023-10-06 00:16:15,331 ERROR: Exception on /export_posts [GET] [in C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py:1414]
+Traceback (most recent call last):
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
 
-The above exception was the direct cause of the following exception:
+During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
   File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask\app.py", line 2190, in wsgi_app
@@ -20,55 +56,28 @@ Traceback (most recent call last):
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
   File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\flask_login\utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
-  File "C:\Users\User\Desktop\flask-mega\app\routes.py", line 91, in edit_profile
-    db.session.commit()
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\scoping.py", line 554, in commit
-    return self._proxied.commit()
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1923, in commit
-    trans.commit(_to_root=True)
-  File "<string>", line 2, in commit
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1239, in commit
-    self._prepare_impl()
-  File "<string>", line 2, in _prepare_impl
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 1214, in _prepare_impl
-    self.session.flush()
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4179, in flush
-    self._flush(objects)
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4315, in _flush
-    transaction.rollback(_capture_exception=True)
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\util\langhelpers.py", line 147, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\session.py", line 4275, in _flush
-    flush_context.execute()
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 466, in execute
-    rec.execute(self)
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\unitofwork.py", line 642, in execute
-    util.preloaded.orm_persistence.save_obj(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 85, in save_obj
-    _emit_update_statements(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\orm\persistence.py", line 909, in _emit_update_statements
-    c = connection.execute(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1412, in execute
-    return meth(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\sql\elements.py", line 515, in _execute_on_connection
-    return connection._execute_clauseelement(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1635, in _execute_clauseelement
-    ret = self._execute_context(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1844, in _execute_context
-    return self._exec_single_context(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1984, in _exec_single_context
-    self._handle_dbapi_exception(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 2339, in _handle_dbapi_exception
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\base.py", line 1965, in _exec_single_context
-    self.dialect.do_execute(
-  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\sqlalchemy\engine\default.py", line 921, in do_execute
-    cursor.execute(statement, parameters)
-sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: user.username
-[SQL: UPDATE user SET username=?, about_me=? WHERE user.id = ?]
-[parameters: ('godo', 'cat lover', 1)]
-(Background on this error at: https://sqlalche.me/e/20/gkpj)
+  File "C:\Users\User\Desktop\flask-mega\app\main\routes.py", line 231, in export_posts
+    current_user.launch_task('export_posts', _('Exporting posts...'))
+  File "C:\Users\User\Desktop\flask-mega\app\models.py", line 155, in launch_task
+    rq_job = current_app.task_queue.enqueue('app.tasks.' + name, self.id,
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\rq\queue.py", line 972, in enqueue
+    return self.enqueue_call(
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\rq\queue.py", line 721, in enqueue_call
+    return self.enqueue_job(job, pipeline=pipeline, at_front=at_front)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\rq\queue.py", line 1095, in enqueue_job
+    return self._enqueue_job(job, pipeline=pipeline, at_front=at_front)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\rq\queue.py", line 1115, in _enqueue_job
+    job.redis_server_version = self.get_redis_server_version()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\rq\queue.py", line 219, in get_redis_server_version
+    self.redis_server_version = get_version(self.connection)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\rq\utils.py", line 293, in get_version
+    tuple(int(i) for i in connection.info("server")["redis_version"].split('.')[:3]),
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\commands\core.py", line 1004, in info
+    return self.execute_command("INFO", section, *args, **kwargs)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\User\Desktop\flask-mega\.venv\lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to localhost:6379. No connection could be made because the target machine actively refused it.
