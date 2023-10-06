@@ -19,11 +19,12 @@ def ping_elasticsearch(app):
         if not app.elasticsearch.ping():
             app.elasticsearch = None
 
-            send_email('[Microblog] Elasticsearch server cannot be reached',
-                       sender=app.config['MAIL_DEFAULT_SENDER'],
-                       recipients=[app.config['MAIL_DEFAULT_SENDER']],
-                       text_body='Elasticsearch server cannot be reached.',
-                       html_body='Elasticsearch server cannot be reached.')
+            # send notif email when actually using Elasticsearch
+            # send_email('[Microblog] Elasticsearch server cannot be reached',
+            #            sender=app.config['MAIL_DEFAULT_SENDER'],
+            #            recipients=[app.config['MAIL_DEFAULT_SENDER']],
+            #            text_body='Elasticsearch server cannot be reached.',
+            #            html_body='Elasticsearch server cannot be reached.')
 
 
 # startup code, runs once
